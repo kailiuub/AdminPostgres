@@ -1,0 +1,44 @@
+<!doctype html>
+
+<html>
+
+<head>
+
+
+</head>
+
+
+<body>
+
+<form action = "{{url_for('add')}}", method="post">
+	
+	<dl> 
+	<dt> Username
+	<dd> <input type='text' name='username' id='email'/>
+	<dt> Email
+	<dd> <input type='text' name='email' id='email'/>
+	<dd> <input type='submit' value="add user"/>
+	</dl>
+
+</form>
+
+
+
+{% for message in get_flashed_messages()%}
+<div class="flash">Message:&emsp;{{message}}</div>
+{% endfor %}
+
+<ul>
+
+{% for item in dblist %}
+<li>{{item.id}}-{{item.username}}-{{item.email}}</li>
+{% endfor %}
+
+</ul>
+
+<a href="/search"><h4>search records</h4></a>
+
+
+</body>
+
+<html/>

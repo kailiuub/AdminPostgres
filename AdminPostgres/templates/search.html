@@ -1,0 +1,42 @@
+<!doctype html>
+
+<html>
+
+<head>
+
+
+</head>
+
+
+<body>
+
+
+
+<form action = "{{url_for('search')}}", method="post">
+
+<dl> 
+<dt> Search by username
+<dd> <input type='text' name='searchkw' id='searchkw'/>
+<dd> <input type='submit' value="search"/>
+</dl>
+
+</form>
+
+{% for message in get_flashed_messages()%}
+<div class="flash">Message:&emsp;{{message}}</div>
+{% endfor %}
+
+
+{% for item in searchdb %}
+<li>{{item.id}}-{{item.username}}-{{item.email}}</li>
+{% endfor %}
+
+
+
+</ul>
+
+<a href="/"><h4>homepage</h4></a>
+
+</body>
+
+<html/>
